@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: --apple-system;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+textarea {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  overflow: auto;
+  outline: none;
+  resize: none;
+  box-shadow: none;
+  font-size: .9rem;
+  margin-top: 20px;
+  padding: .6rem;
+  color: #333;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: .5rem;
+  opacity: .3;
+  transition: opacity .15s ease-in;
+}
+
+nav:hover {
+  opacity: 1;
+}
+
+button {
+  color: #454545;
+  background: none;
+  border: 0;
+  font-size: .8rem;
+  outline: none;
+}
+
+.right {
+  float: right;
+}

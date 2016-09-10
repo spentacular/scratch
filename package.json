@@ -1,0 +1,17 @@
+{
+  "name": "scratch",
+  "version": "0.1.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "standard"
+  },
+  "keywords": [],
+  "author": "Spencer Hamm <spentacular@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.3.5",
+    "standard": "^8.0.0"
+  }
+}
