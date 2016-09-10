@@ -3,14 +3,17 @@
  */
 
 const electron = require('electron')
-// Module to control application life.
 const app = electron.app
-// Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow
+const {Menu} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
 
 function createWindow () {
   // Create the browser window.
@@ -32,10 +35,12 @@ function createWindow () {
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
+app.on('ready', () => {
+  createWindow()
+
+  const menu = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(menu)
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -53,3 +58,56 @@ app.on('activate', function () {
     createWindow()
   }
 })
+
+const template = [
+  {
+    label: 'Scratch',
+    submenu: [
+      {
+        label: 'Hide',
+        accelerator: 'Command+H',
+        selector: 'hide:'
+      },
+      {
+        label: 'Quit App',
+        accelerator: 'Command+Q',
+        selector: 'terminate:'
+      }
+    ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      {
+        label: 'Undo',
+        accelerator: 'Command+Z',
+        selector: 'undo:'
+      },
+      {
+        label: 'Redo',
+        accelerator: 'Shift+Command+Z',
+        selector: 'redo:'
+      },
+      {
+        label: 'Cut',
+        accelerator: 'Command+X',
+        selector: 'cut:'
+      },
+      {
+        label: 'Copy',
+        accelerator: 'Command+C',
+        selector: 'copy:'
+      },
+      {
+        label: 'Paste',
+        accelerator: 'Command+V',
+        selector: 'paste:'
+      },
+      {
+        label: 'Select All',
+        accelerator: 'Command+A',
+        selector: 'selectAll:'
+      }
+    ]
+  }
+]

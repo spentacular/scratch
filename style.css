@@ -20,15 +20,14 @@ body {
 }
 
 textarea {
-  height: 100%;
+  position: absolute;
+  top: 22px;
+  bottom: 0;
   width: 100%;
   border: 0;
-  overflow: auto;
   outline: none;
   resize: none;
-  box-shadow: none;
   font-size: .9rem;
-  margin-top: 20px;
   padding: .6rem;
   color: #333;
 }
